@@ -16,6 +16,10 @@ var cors = require('cors');
 // Use Express
 var app = express()
 
+// set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 8080;
+
 // Use body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -50,7 +54,7 @@ app.get('/test', function(request, response) {
 });
 
 
-var server = app.listen(8080, function () {
+var server = app.listen(port, function () {
 	var host = server.address().address;
 	var port = server.address().port;
 
